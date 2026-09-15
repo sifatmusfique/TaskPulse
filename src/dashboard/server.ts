@@ -9,12 +9,12 @@ export interface DashboardServerOptions {
 }
 
 export class TaskPulseDashboard {
-  private queue: TaskPulse;
+  private queue: TaskPulse<any, any>;
   private server: http.Server | null = null;
   public readonly port: number;
   public readonly host: string;
 
-  constructor(queue: TaskPulse, options: DashboardServerOptions = {}) {
+  constructor(queue: TaskPulse<any, any>, options: DashboardServerOptions = {}) {
     this.queue = queue;
     this.port = options.port ?? 4000;
     this.host = options.host ?? 'localhost';
@@ -98,6 +98,6 @@ export class TaskPulseDashboard {
   }
 }
 
-export function createDashboard(queue: TaskPulse, options?: DashboardServerOptions): TaskPulseDashboard {
+export function createDashboard(queue: TaskPulse<any, any>, options?: DashboardServerOptions): TaskPulseDashboard {
   return new TaskPulseDashboard(queue, options);
 }
