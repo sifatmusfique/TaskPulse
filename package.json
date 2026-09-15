@@ -1,0 +1,55 @@
+{
+  "name": "taskpulse",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A resilient, persistent, zero-redis background job and workflow queue engine for Node.js / TypeScript",
+  "author": "Sifat Musfique",
+  "license": "MIT",
+  "keywords": [
+    "job-queue",
+    "background-jobs",
+    "sqlite",
+    "persistent-queue",
+    "worker-pool",
+    "cron",
+    "typescript",
+    "task-runner"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./dashboard": {
+      "types": "./dist/dashboard/server.d.ts",
+      "import": "./dist/dashboard/server.mjs",
+      "require": "./dist/dashboard/server.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "benchmark": "node --import tsx/esm benchmarks/throughput.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cron-parser": "^5.10.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.0",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}
