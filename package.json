@@ -15,23 +15,33 @@
     "typescript",
     "task-runner"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./dashboard": {
       "types": "./dist/dashboard/server.d.ts",
-      "import": "./dist/dashboard/server.mjs",
-      "require": "./dist/dashboard/server.js"
+      "import": "./dist/dashboard/server.js",
+      "require": "./dist/dashboard/server.cjs"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sifatmusfique/TaskPulse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sifatmusfique/TaskPulse/issues"
+  },
+  "homepage": "https://github.com/sifatmusfique/TaskPulse#readme",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup && tsc --emitDeclarationOnly",
@@ -39,7 +49,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "benchmark": "node --import tsx/esm benchmarks/throughput.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
     "better-sqlite3": "^13.0.3",
