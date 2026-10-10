@@ -1,5 +1,5 @@
 {
-  "name": "taskpulse",
+  "name": "taskpulse-js",
   "version": "0.1.0",
   "type": "module",
   "description": "A resilient, persistent, zero-redis background job and workflow queue engine for Node.js / TypeScript",

@@ -31,11 +31,11 @@ Most backend queues (BullMQ, Celery, Sidekiq) force you to deploy and manage a d
 ## 📦 Installation
 
 ```bash
-npm install taskpulse
+npm install taskpulse-js
 # or
-pnpm add taskpulse
+pnpm add taskpulse-js
 # or
-yarn add taskpulse
+yarn add taskpulse-js
 ```
 
 ---
@@ -43,7 +43,7 @@ yarn add taskpulse
 ## 🚀 Quick Start
 
 ```typescript
-import { TaskPulse, createDashboard } from 'taskpulse';
+import { TaskPulse, createDashboard } from 'taskpulse-js';
 
 // 1. Initialize queue (backed by local SQLite database)
 const queue = new TaskPulse<{ email: string; subject: string }>('email-queue', {
